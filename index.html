@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Luiza Maria Barros · Desenvolvedora Python">
+<meta property="og:description" content="Automação, integrações, dados e IA.">
+<meta property="og:image" content="foto.jpg">
+<title>Luiza Maria Barros</title>
+<meta name="description" content="Portfólio de Luiza Maria Barros de Oliveira — Desenvolvedora Python · Automação, Integrações e Dados">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#FBF7F5;
+    --surface:#FFFFFF;
+    --surface-2:#F5ECE9;
+    --ink:#26261C;
+    --muted:#6B695C;
+    --line:#E8DDD8;
+    --olive:#5F6E14;
+    --olive-soft:#EBEED7;
+    --on-olive:#FFFFFF;
+    --rose:#B0526A;
+    --rose-soft:#F7E2E6;
+    --shadow:0 18px 40px -24px rgba(60,40,40,.35);
+
+    --f-display:"Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --f-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --f-mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme:dark;
+      --bg:#15160F; --surface:#1D1F15; --surface-2:#25281B; --ink:#F2ECE6; --muted:#ABA897;
+      --line:#33362A; --olive:#BBCB5F; --olive-soft:#2A3017; --on-olive:#15160F;
+      --rose:#EA9DAE; --rose-soft:#3A2228; --shadow:0 18px 40px -24px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#15160F; --surface:#1D1F15; --surface-2:#25281B; --ink:#F2ECE6; --muted:#ABA897;
+    --line:#33362A; --olive:#BBCB5F; --olive-soft:#2A3017; --on-olive:#15160F;
+    --rose:#EA9DAE; --rose-soft:#3A2228; --shadow:0 18px 40px -24px rgba(0,0,0,.7);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{transition:none!important;animation:none!important}}
+  body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:6px}
+
+  /* idioma */
+  .site[data-lang="pt"] [lang="en"], .site[data-lang="en"] [lang="pt"]{display:none!important}
+
+  .wrap{max-width:1120px;margin:0 auto;padding-inline:24px}
+  @media (max-width:520px){.wrap{padding-inline:18px}}
+
+  /* nav */
+  .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb, var(--bg) 86%, transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .brand{font-family:var(--f-display);font-size:26px;text-decoration:none;letter-spacing:.01em}
+  .brand i{color:var(--rose)}
+  .nav-links{display:flex;gap:26px;font-size:15px;font-weight:500}
+  .nav-links a{text-decoration:none;color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  @media (max-width:820px){.nav-links{display:none}}
+  .lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
+  .lang button{font:500 13px/1 var(--f-mono);border:0;background:transparent;color:var(--muted);padding:7px 12px;border-radius:999px;cursor:pointer}
+  .lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+  /* hero */
+  .hero{padding-block:72px 88px}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+  @media (max-width:880px){.hero{padding-block:40px 64px}.hero .wrap{grid-template-columns:1fr;gap:44px}.hero-photo{order:-1;max-width:340px;margin-inline:auto}}
+  .eyebrow{font:500 13px/1.4 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--olive)}
+  h1{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6.6vw,84px);line-height:.98;letter-spacing:-.01em;margin:18px 0 22px;text-wrap:balance}
+  h1 em{color:var(--rose);font-style:italic}
+  .lead{font-size:clamp(17px,1.6vw,19px);color:var(--muted);max-width:52ch;margin:0 0 32px}
+  .lead strong{color:var(--ink);font-weight:600}
+  .ctas{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s, background .2s, border-color .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--olive);color:var(--on-olive)}
+  .btn-ghost{border-color:var(--line);background:var(--surface)}
+  .btn-ghost:hover{border-color:var(--rose)}
+  .btn svg{width:16px;height:16px}
+  .facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+  .fact b{display:block;font-family:var(--f-display);font-weight:400;font-size:34px;line-height:1}
+  .fact span{font-size:14px;color:var(--muted)}
+
+  .hero-photo{position:relative;width:100%}
+  .arch{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:999px 999px 28px 28px;overflow:hidden;box-shadow:var(--shadow);background:#6c7a1f}
+  .arch img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+  .arch-bg{position:absolute;inset:18px -18px -18px 18px;border-radius:999px 999px 28px 28px;background:var(--rose-soft);z-index:-1}
+  .hero-photo{isolation:isolate}
+  .chip{position:absolute;left:-22px;bottom:44px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font:500 12.5px/1.45 var(--f-mono);box-shadow:var(--shadow)}
+  .chip .k{color:var(--rose)} .chip .s{color:var(--olive)}
+  @media (max-width:880px){.chip{left:-8px}}
+
+  /* seções */
+  section{scroll-margin-top:80px}
+  .sec{padding-block:88px}
+  .sec + .sec{border-top:1px solid var(--line)}
+  .sec-head{display:grid;grid-template-columns:260px 1fr;gap:40px;margin-bottom:48px;align-items:end}
+  @media (max-width:820px){.sec{padding-block:64px}.sec-head{grid-template-columns:1fr;gap:10px;margin-bottom:32px}}
+  h2{font-family:var(--f-display);font-weight:400;font-size:clamp(38px,4.6vw,56px);line-height:1.02;margin:8px 0 0;text-wrap:balance}
+  h2 em{color:var(--rose)}
+  .sec-head p{margin:0;color:var(--muted);max-width:58ch}
+
+  /* sobre */
+  .about{display:grid;grid-template-columns:260px 1fr;gap:40px}
+  @media (max-width:820px){.about{grid-template-columns:1fr;gap:24px}}
+  .about-text p{font-size:clamp(19px,2vw,23px);line-height:1.5;margin:0 0 20px;max-width:40ch;font-weight:400}
+  .about-text p:last-child{font-size:17px;color:var(--muted);max-width:60ch}
+  .about-text mark{background:linear-gradient(transparent 62%, var(--rose-soft) 62%);color:inherit;padding:0 2px}
+
+  /* áreas */
+  .areas{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media (max-width:980px){.areas{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.areas{grid-template-columns:1fr}}
+  .area{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px 24px;display:flex;flex-direction:column;gap:12px}
+  .area .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--olive-soft);color:var(--olive)}
+  .area:nth-child(even) .ic{background:var(--rose-soft);color:var(--rose)}
+  .area .ic svg{width:21px;height:21px}
+  .area h3{margin:4px 0 0;font-size:19px;font-weight:600;line-height:1.3}
+  .area p{margin:0;font-size:15px;color:var(--muted)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+  .tag{font:500 12px/1 var(--f-mono);padding:6px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--bg)}
+
+  /* projetos */
+  .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media (max-width:820px){.cases{grid-template-columns:1fr}}
+  .case{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:30px;display:flex;flex-direction:column;gap:16px}
+  .case.featured{grid-column:1/-1;background:var(--olive);color:var(--on-olive);border-color:transparent;display:grid;grid-template-columns:1fr 1.2fr;gap:36px;padding:40px}
+  @media (max-width:820px){.case.featured{grid-template-columns:1fr;gap:20px;padding:30px}}
+  .case .meta{font:500 12.5px/1.4 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;color:var(--rose)}
+  .case.featured .meta{color:inherit;opacity:.8}
+  .case h3{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,2.6vw,34px);line-height:1.08;margin:6px 0 0;text-wrap:balance}
+  .case.featured h3{font-size:clamp(32px,3.4vw,44px)}
+  .steps{display:grid;gap:12px;margin:0}
+  .steps div{display:grid;grid-template-columns:92px 1fr;gap:12px;font-size:15.5px}
+  @media (max-width:420px){.steps div{grid-template-columns:1fr;gap:2px}}
+  .steps dt{font:500 12px/1.9 var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .case.featured .steps dt{color:inherit;opacity:.75}
+  .steps dd{margin:0}
+  .case .tags{margin-top:auto}
+  .case.featured .tag{background:transparent;border-color:color-mix(in srgb, var(--on-olive) 35%, transparent);color:inherit}
+
+  /* trajetória */
+  .timeline{list-style:none;margin:0;padding:0;position:relative}
+  .timeline::before{content:"";position:absolute;left:131px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--olive), var(--rose))}
+  .tl{display:grid;grid-template-columns:110px 44px 1fr;gap:0;padding-block:18px}
+  .tl .when{font:500 13px/1.5 var(--f-mono);color:var(--muted);padding-top:3px;text-align:right;padding-right:6px}
+  .tl .dot{width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--olive);margin:6px auto 0;position:relative;z-index:1}
+  .tl.now .dot{background:var(--rose);border-color:var(--rose);box-shadow:0 0 0 6px var(--rose-soft)}
+  .tl h3{margin:0;font-size:19px;font-weight:600;line-height:1.35}
+  .tl h3 span{font-weight:400;color:var(--muted)}
+  .tl p{margin:6px 0 0;color:var(--muted);font-size:15.5px;max-width:68ch}
+  .stage{display:inline-block;font:500 11.5px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.05em;padding:5px 8px;border-radius:6px;background:var(--olive-soft);color:var(--olive);margin-bottom:8px}
+  .tl.now .stage{background:var(--rose-soft);color:var(--rose)}
+  @media (max-width:620px){
+    .timeline::before{left:6px}
+    .tl{grid-template-columns:14px 1fr;column-gap:18px}
+    .tl .dot{grid-column:1;grid-row:1 / span 2;margin-top:4px}
+    .tl .when{grid-column:2;text-align:left;padding:0 0 4px}
+    .tl .body{grid-column:2}
+  }
+
+  /* stack */
+  .stack{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--surface)}
+  @media (max-width:880px){.stack{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.stack{grid-template-columns:1fr}}
+  .stack > div{padding:24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -1px -1px 0}
+  .stack h3{margin:0 0 12px;font-size:15px;font-weight:600}
+
+  /* formação */
+  .edu{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media (max-width:880px){.edu{grid-template-columns:1fr}}
+  .edu > div{background:var(--surface-2);border-radius:22px;padding:26px}
+  .edu h3{margin:0 0 14px;font:500 12.5px/1.4 var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--olive)}
+  .edu .big{font-family:var(--f-display);font-size:28px;line-height:1.1;margin:0 0 8px}
+  .edu p{margin:0;color:var(--muted);font-size:15px}
+  .edu ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:15px}
+  .edu li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:10px}
+  .edu li:last-child{border:0;padding:0}
+  .edu li span:last-child{font-family:var(--f-mono);font-size:13px;color:var(--muted);white-space:nowrap}
+
+  /* contato */
+  .contact{padding-block:96px 72px;text-align:left}
+  .contact-card{background:var(--rose-soft);border-radius:32px;padding:clamp(32px,6vw,72px);display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end}
+  @media (max-width:820px){.contact-card{grid-template-columns:1fr}}
+  .contact h2{font-size:clamp(42px,5.6vw,72px)}
+  .contact p{color:var(--muted);margin:16px 0 0;max-width:44ch}
+  .links{display:grid;gap:10px}
+  .link{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 18px;text-decoration:none;font-weight:500;transition:border-color .2s}
+  a.link:hover{border-color:var(--rose)}
+  .link small{display:block;font:500 11.5px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:2px}
+  .link .val{word-break:break-all;user-select:all}
+  .copy{font:500 12px/1 var(--f-mono);border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:8px 12px;cursor:pointer;white-space:nowrap}
+  .copy:hover{border-color:var(--rose)}
+  footer{padding-block:28px 40px;color:var(--muted);font-size:13.5px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+<div class="site" id="site" data-lang="pt">
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Luiza<i>.</i></a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#sobre"><span lang="pt">Sobre</span><span lang="en">About</span></a>
+      <a href="#projetos"><span lang="pt">Projetos</span><span lang="en">Projects</span></a>
+      <a href="#trajetoria"><span lang="pt">Trajetória</span><span lang="en">Journey</span></a>
+      <a href="#stack">Stack</a>
+      <a href="#contato"><span lang="pt">Contato</span><span lang="en">Contact</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" id="btn-pt" data-set="pt" aria-pressed="true">PT</button>
+      <button type="button" id="btn-en" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">
+          <span lang="pt">Desenvolvedora Python · Guarulhos, SP</span>
+          <span lang="en">Python Developer · São Paulo, Brazil</span>
+        </div>
+        <h1>
+          <span lang="pt">Transformo processos manuais em <em>automação</em>.</span>
+          <span lang="en">I turn manual work into <em>automation</em>.</span>
+        </h1>
+        <p class="lead" lang="pt">Sou a <strong>Luiza Maria</strong>. Trabalho entre o negócio e a técnica: entendo a necessidade, desenho a solução e automatizo, de APIs e integrações de dados a agentes de IA.</p>
+        <p class="lead" lang="en">I'm <strong>Luiza Maria</strong>. I work between business and tech: I understand the need, design the solution and automate it, from APIs and data integrations to AI agents.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#projetos">
+            <span lang="pt">Ver projetos</span><span lang="en">See projects</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#contato"><span lang="pt">Falar comigo</span><span lang="en">Get in touch</span></a>
+        </div>
+        <div class="facts">
+          <div class="fact"><b>3+</b><span lang="pt">anos com Python</span><span lang="en">years of Python</span></div>
+          <div class="fact"><b>6</b><span lang="pt">empresas, de fintech a produto</span><span lang="en">companies, fintech to product</span></div>
+          <div class="fact"><b>IFSP</b><span lang="pt">Análise e Desenv. de Sistemas</span><span lang="en">Systems Analysis &amp; Development</span></div>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <div class="arch-bg" aria-hidden="true"></div>
+        <div class="arch"><img src="foto.jpg" alt="Foto de Luiza Maria sorrindo, de camisa branca, em frente a uma parede verde-oliva" width="720" height="900"></div>
+        <div class="chip" aria-hidden="true"><span class="k">stack</span> = [<span class="s">"python"</span>,<br>&nbsp;<span class="s">"ia"</span>, <span class="s">"dados"</span>]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sec" id="sobre">
+    <div class="wrap about">
+      <div>
+        <div class="eyebrow"><span lang="pt">Sobre mim</span><span lang="en">About me</span></div>
+        <h2><span lang="pt">Olá!</span><span lang="en">Hello!</span></h2>
+      </div>
+      <div class="about-text">
+        <p lang="pt">Gosto de resolver problemas e de <mark>eliminar trabalho repetitivo</mark>. Comecei no suporte técnico, passei por SRE no PagBank e hoje desenvolvo automações, integrações de dados e agentes de IA.</p>
+        <p lang="en">I love solving problems and <mark>removing repetitive work</mark>. I started in tech support, worked in SRE at PagBank, and today I build automations, data integrations and AI agents.</p>
+        <p lang="pt">Cuido dos detalhes e da qualidade, e uso IA como ferramenta para entregar com mais eficiência. Já trabalhei em fintech (PagBank), consultoria de inovação (Accenture) e empresas de produto, inclusive com clientes internacionais.</p>
+        <p lang="en">I care about details and quality, and I use AI as a tool to deliver faster. I have worked in fintech (PagBank), innovation consulting (Accenture) and product companies, including with international clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREAS -->
+  <section class="sec" id="areas">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow"><span lang="pt">O que eu faço</span><span lang="en">What I do</span></div>
+          <h2><span lang="pt">Áreas de <em>atuação</em></span><span lang="en">What I <em>work on</em></span></h2>
+        </div>
+        <p lang="pt">Quatro frentes que se conectam: coletar e mover dados, expor esses dados em APIs, colocar inteligência em cima e transformar tudo em informação para o negócio.</p>
+        <p lang="en">Four connected areas: collecting and moving data, serving it through APIs, adding intelligence on top, and turning it into insight for the business.</p>
+      </div>
+      <div class="areas">
+        <article class="area">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div>
+          <h3><span lang="pt">Automação e Web Scraping</span><span lang="en">Automation &amp; Web Scraping</span></h3>
+          <p lang="pt">Coleta de dados em páginas dinâmicas e protegidas, monitoramento automático e scripts que substituem tarefas manuais.</p>
+          <p lang="en">Data collection from dynamic and protected pages, automated monitoring, and scripts that replace manual tasks.</p>
+          <div class="tags"><span class="tag">Playwright</span><span class="tag">Burp Suite</span><span class="tag">anti-bot</span></div>
+        </article>
+        <article class="area">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></div>
+          <h3><span lang="pt">Backend e APIs</span><span lang="en">Backend &amp; APIs</span></h3>
+          <p lang="pt">APIs REST em produção, tarefas assíncronas, testes automatizados e sustentação.</p>
+          <p lang="en">Production REST APIs, async tasks, automated tests and ongoing support.</p>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">Django/DRF</span><span class="tag">Celery</span></div>
+        </article>
+        <article class="area">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z"/></svg></div>
+          <h3><span lang="pt">Inteligência Artificial</span><span lang="en">Artificial Intelligence</span></h3>
+          <p lang="pt">Agentes de IA, IA generativa com a API da OpenAI, engenharia de prompts e OCR de documentos.</p>
+          <p lang="en">AI agents, generative AI with the OpenAI API, prompt engineering and document OCR.</p>
+          <div class="tags"><span class="tag">AI agents</span><span class="tag">OpenAI</span><span class="tag">OCR</span></div>
+        </article>
+        <article class="area">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+          <h3><span lang="pt">Dados e BI</span><span lang="en">Data &amp; BI</span></h3>
+          <p lang="pt">Integração e preparação de dados para dashboards, com consultas em data lake e APIs.</p>
+          <p lang="en">Integrating and preparing data for dashboards, querying data lakes and APIs.</p>
+          <div class="tags"><span class="tag">Athena</span><span class="tag">Databricks</span><span class="tag">Power BI</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section class="sec" id="projetos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow"><span lang="pt">Projetos em destaque</span><span lang="en">Selected work</span></div>
+          <h2><span lang="pt">Problemas que <em>resolvi</em></span><span lang="en">Problems I <em>solved</em></span></h2>
+        </div>
+        <p lang="pt">Trabalhos feitos nas empresas por onde passei. O código é privado, então conto cada um como problema, solução e resultado.</p>
+        <p lang="en">Work done at companies I've been part of. The code is private, so each one is told as problem, solution and result.</p>
+      </div>
+
+      <div class="cases">
+        <article class="case featured">
+          <div>
+            <div class="meta">Infocar · 2024–2026</div>
+            <h3><span lang="pt">Monitoramento automático de sites e serviços</span><span lang="en">Automated monitoring of sites and services</span></h3>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <dl class="steps">
+              <div><dt><span lang="pt">Problema</span><span lang="en">Problem</span></dt><dd lang="pt">Falhas em sites e serviços passavam despercebidas e só apareciam quando o cliente abria chamado.</dd><dd lang="en">Site and service failures went unnoticed and only showed up when a customer opened a ticket.</dd></div>
+              <div><dt><span lang="pt">Solução</span><span lang="en">Solution</span></dt><dd lang="pt">Módulo em Python com Playwright que valida vários endpoints em horários programados e controla as consultas sozinho, de acordo com o status e o conteúdo retornado.</dd><dd lang="en">A Python + Playwright module that checks many endpoints on a schedule and controls queries automatically based on the returned status and content.</dd></div>
+              <div><dt><span lang="pt">Resultado</span><span lang="en">Result</span></dt><dd lang="pt">Menos intervenção manual, menos indisponibilidade sem ninguém perceber e menos chamados de clientes.</dd><dd lang="en">Less manual work, fewer unnoticed outages and fewer customer tickets.</dd></div>
+            </dl>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Playwright</span><span class="tag">Docker</span><span class="tag">MongoDB</span></div>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="meta">Infocar</div>
+          <h3><span lang="pt">Coleta de dados em páginas protegidas</span><span lang="en">Data collection from protected pages</span></h3>
+          <dl class="steps">
+            <div><dt><span lang="pt">Problema</span><span lang="en">Problem</span></dt><dd lang="pt">Dados em páginas dinâmicas, com CAPTCHA e fingerprint.</dd><dd lang="en">Data behind dynamic pages with CAPTCHA and fingerprinting.</dd></div>
+            <div><dt><span lang="pt">Solução</span><span lang="en">Solution</span></dt><dd lang="pt">Scrapers com Playwright, análise de requisições HTTP com Burp Suite e APIs REST em FastAPI para entregar os dados.</dd><dd lang="en">Playwright scrapers, HTTP request analysis with Burp Suite, and FastAPI REST APIs to serve the data.</dd></div>
+            <div><dt><span lang="pt">Resultado</span><span lang="en">Result</span></dt><dd lang="pt">Testes com Pytest nos parsers e crawlers deixaram tudo mais confiável e reduziram erros recorrentes.</dd><dd lang="en">Pytest coverage on parsers and crawlers improved reliability and cut recurring errors.</dd></div>
+          </dl>
+          <div class="tags"><span class="tag">Playwright</span><span class="tag">FastAPI</span><span class="tag">Pytest</span><span class="tag">CI/CD</span></div>
+        </article>
+
+        <article class="case">
+          <div class="meta">Kartado · <span lang="pt">atual</span><span lang="en">current</span></div>
+          <h3><span lang="pt">Agentes de IA e dados para o negócio</span><span lang="en">AI agents and business data</span></h3>
+          <dl class="steps">
+            <div><dt><span lang="pt">Problema</span><span lang="en">Problem</span></dt><dd lang="pt">Implantação em cada cliente com muito trabalho manual e dados espalhados.</dd><dd lang="en">Rolling out to each client meant lots of manual work and scattered data.</dd></div>
+            <div><dt><span lang="pt">Solução</span><span lang="en">Solution</span></dt><dd lang="pt">Automações de implantação, dados integrados para Power BI via Athena e Databricks, e agentes de IA numa plataforma interna.</dd><dd lang="en">Rollout automations, data piped into Power BI via Athena and Databricks, and AI agents on an internal platform.</dd></div>
+            <div><dt><span lang="pt">Resultado</span><span lang="en">Result</span></dt><dd lang="pt">Menos atividades manuais e erros operacionais, e mais produtividade para o time.</dd><dd lang="en">Fewer manual tasks and operational errors, and a more productive team.</dd></div>
+          </dl>
+          <div class="tags"><span class="tag">AI agents</span><span class="tag">Databricks</span><span class="tag">Power BI</span><span class="tag">Sentry</span></div>
+        </article>
+
+        <article class="case">
+          <div class="meta">Accenture · Innovation</div>
+          <h3><span lang="pt">IA generativa e OCR para o setor bancário</span><span lang="en">Generative AI and OCR for banking</span></h3>
+          <dl class="steps">
+            <div><dt><span lang="pt">Problema</span><span lang="en">Problem</span></dt><dd lang="pt">Documentos para transcrever e dados difíceis de consultar.</dd><dd lang="en">Documents to transcribe and data that was hard to query.</dd></div>
+            <div><dt><span lang="pt">Solução</span><span lang="en">Solution</span></dt><dd lang="pt">Solução de OCR para documentos e evolução de uma IA generativa (API da OpenAI) que responde perguntas sobre dados em banco.</dd><dd lang="en">Document OCR, plus improving a generative AI (OpenAI API) that answers questions about database data.</dd></div>
+            <div><dt><span lang="pt">Contexto</span><span lang="en">Context</span></dt><dd lang="pt">GCP (Cloud Functions, BigQuery), com clientes internacionais.</dd><dd lang="en">GCP (Cloud Functions, BigQuery), with international clients.</dd></div>
+          </dl>
+          <div class="tags"><span class="tag">OpenAI</span><span class="tag">OCR</span><span class="tag">GCP</span><span class="tag">BigQuery</span></div>
+        </article>
+
+        <article class="case">
+          <div class="meta">PagBank · SRE</div>
+          <h3><span lang="pt">API interna de dados dos times</span><span lang="en">Internal team data API</span></h3>
+          <dl class="steps">
+            <div><dt><span lang="pt">Problema</span><span lang="en">Problem</span></dt><dd lang="pt">Informações dos times da empresa sem um ponto único de acesso.</dd><dd lang="en">Team data across the company had no single access point.</dd></div>
+            <div><dt><span lang="pt">Solução</span><span lang="en">Solution</span></dt><dd lang="pt">API em Python com FastAPI, cache em Redis e deploy com Docker.</dd><dd lang="en">A Python FastAPI service with Redis caching, shipped with Docker.</dd></div>
+            <div><dt><span lang="pt">Contexto</span><span lang="en">Context</span></dt><dd lang="pt">No time de SRE: on-call, incidentes, CI/CD e Kubernetes.</dd><dd lang="en">On the SRE team: on-call, incidents, CI/CD and Kubernetes.</dd></div>
+          </dl>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAJETÓRIA -->
+  <section class="sec" id="trajetoria">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow"><span lang="pt">Trajetória</span><span lang="en">Journey</span></div>
+          <h2><span lang="pt">Do suporte à <em>IA</em></span><span lang="en">From support to <em>AI</em></span></h2>
+        </div>
+        <p lang="pt">Cada etapa somou uma camada: entender o cliente, manter sistemas de pé, construir backend e, agora, automação, dados e IA.</p>
+        <p lang="en">Each step added a layer: understanding users, keeping systems up, building backends and now automation, data and AI.</p>
+      </div>
+
+      <ol class="timeline">
+        <li class="tl now">
+          <div class="when"><span lang="pt">abr 2026 – atual</span><span lang="en">Apr 2026 – now</span></div>
+          <div class="dot" aria-hidden="true"></div>
+          <div class="body">
+            <span class="stage"><span lang="pt">automação · dados · IA</span><span lang="en">automation · data · AI</span></span>
+            <h3><span lang="pt">Analista de Implementação Técnica</span><span lang="en">Technical Implementation Analyst</span> <span>· Kartado</span></h3>
+            <p lang="pt">Scripts e automações em Python para implantação nos clientes, dados para Power BI e agentes de IA.</p>
+            <p lang="en">Python scripts and automations for client rollouts, data for Power BI, and AI agents.</p>
+          </div>
+        </li>
+        <li class="tl">
+          <div class="when"><span lang="pt">set 2024 – abr 2026</span><span lang="en">Sep 2024 – Apr 2026</span></div>
+          <div class="dot" aria-hidden="true"></div>
+          <div class="body">
+            <span class="stage">backend · scraping</span>
+            <h3><span lang="pt">Programadora Backend II</span><span lang="en">Backend Developer II</span> <span>· Infocar</span></h3>
+            <p lang="pt">Web scraping com Playwright, APIs com FastAPI, testes com Pytest e monitoramento automático.</p>
+            <p lang="en">Web scraping with Playwright, FastAPI APIs, Pytest tests and automated monitoring.</p>
+          </div>
+        </li>
+        <li class="tl">
+          <div class="when"><span lang="pt">mai – set 2024</span><span lang="en">May – Sep 2024</span></div>
+          <div class="dot" aria-hidden="true"></div>
+          <div class="body">
+            <span class="stage"><span lang="pt">IA generativa</span><span lang="en">generative AI</span></span>
+            <h3><span lang="pt">Programadora Backend Júnior</span><span lang="en">Junior Backend Developer</span> <span>· Accenture</span></h3>
+            <p lang="pt">Área de Innovation: OCR, IA generativa com OpenAI e GCP para clientes de vários segmentos.</p>
+            <p lang="en">Innovation team: OCR, generative AI with OpenAI, and GCP for clients across industries.</p>
+          </div>
+        </li>
+        <li class="tl">
+          <div class="when"><span lang="pt">out 2023 – abr 2024</span><span lang="en">Oct 2023 – Apr 2024</span></div>
+          <div class="dot" aria-hidden="true"></div>
+          <div class="body">
+            <span class="stage">backend · fullstack</span>
+            <h3><span lang="pt">Programadora Backend Júnior</span><span lang="en">Junior Backend Developer</span> <span>· 7Desenvolvimento</span></h3>
+            <p lang="pt">Django, DRF, Celery e PostgreSQL, além de telas em Vue.js com geração de relatórios em PDF.</p>
+            <p lang="en">Django, DRF, Celery and PostgreSQL, plus Vue.js screens with PDF report generation.</p>
+          </div>
+        </li>
+        <li class="tl">
+          <div class="when"><span lang="pt">set 2022 – out 2023</span><span lang="en">Sep 2022 – Oct 2023</span></div>
+          <div class="dot" aria-hidden="true"></div>
+          <div class="body">
+            <span class="stage"><span lang="pt">confiabilidade</span><span lang="en">reliability</span></span>
+            <h3><span lang="pt">SRE (Estágio)</span><span lang="en">SRE Intern</span> <span>· PagBank</span></h3>
+            <p lang="pt">On-call, incidentes de produção, CI/CD, Kubernetes e observabilidade numa grande fintech.</p>
+            <p lang="en">On-call, production incidents, CI/CD, Kubernetes and observability at a large fintech.</p>
+          </div>
+        </li>
+        <li class="tl">
+          <div class="when"><span lang="pt">nov 2021 – ago 2022</span><span lang="en">Nov 2021 – Aug 2022</span></div>
+          <div class="dot" aria-hidden="true"></div>
+          <div class="body">
+            <span class="stage"><span lang="pt">onde tudo começou</span><span lang="en">where it started</span></span>
+            <h3><span lang="pt">Estagiária de TI → Analista de Suporte Jr.</span><span lang="en">IT Intern → Jr. Support Analyst</span> <span>· RCKY Informática</span></h3>
+            <p lang="pt">Promovida em 3 meses. Atendi clientes como a Cacau Show, diagnosticando falhas e acompanhando chamados com o time de desenvolvimento.</p>
+            <p lang="en">Promoted within 3 months. Supported clients such as Cacau Show, diagnosing issues and following up with the dev team.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="sec" id="stack">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow"><span lang="pt">Competências técnicas</span><span lang="en">Technical skills</span></div>
+          <h2><span lang="pt">Minha <em>stack</em></span><span lang="en">My <em>stack</em></span></h2>
+        </div>
+        <p lang="pt">Ferramentas que usei em produção, agrupadas pelo tipo de problema que resolvem.</p>
+        <p lang="en">Tools I've used in production, grouped by the kind of problem they solve.</p>
+      </div>
+      <div class="stack">
+        <div><h3>Backend &amp; APIs</h3><div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Django / DRF</span><span class="tag">Flask</span><span class="tag">REST</span><span class="tag">Celery</span></div></div>
+        <div><h3><span lang="pt">Automação &amp; Scraping</span><span lang="en">Automation &amp; Scraping</span></h3><div class="tags"><span class="tag">Playwright</span><span class="tag">Burp Suite</span><span class="tag">anti-bot</span><span class="tag">monitoring</span></div></div>
+        <div><h3><span lang="pt">Inteligência Artificial</span><span lang="en">Artificial Intelligence</span></h3><div class="tags"><span class="tag">AI agents</span><span class="tag">OpenAI API</span><span class="tag">prompt eng.</span><span class="tag">OCR</span></div></div>
+        <div><h3><span lang="pt">Dados &amp; BI</span><span lang="en">Data &amp; BI</span></h3><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">AWS Athena</span><span class="tag">Databricks</span><span class="tag">Power BI</span></div></div>
+        <div><h3>Cloud &amp; Infra</h3><div class="tags"><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span><span class="tag">Linux</span></div></div>
+        <div><h3><span lang="pt">Qualidade &amp; Observabilidade</span><span lang="en">Quality &amp; Observability</span></h3><div class="tags"><span class="tag">Pytest</span><span class="tag">CI/CD</span><span class="tag">Git</span><span class="tag">code review</span><span class="tag">Sentry</span><span class="tag">Grafana</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAÇÃO -->
+  <section class="sec" id="formacao">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow"><span lang="pt">Formação</span><span lang="en">Education</span></div>
+          <h2><span lang="pt">Estudos e <em>certificações</em></span><span lang="en">Education &amp; <em>certificates</em></span></h2>
+        </div>
+      </div>
+      <div class="edu">
+        <div>
+          <h3><span lang="pt">Graduação</span><span lang="en">Degree</span></h3>
+          <p class="big"><span lang="pt">Análise e Desenvolvimento de Sistemas</span><span lang="en">Systems Analysis &amp; Development</span></p>
+          <p><span lang="pt">Instituto Federal de São Paulo (IFSP), Guarulhos · concluído em 2024</span><span lang="en">Federal Institute of São Paulo (IFSP) · completed 2024</span></p>
+        </div>
+        <div>
+          <h3><span lang="pt">Certificações</span><span lang="en">Certificates</span></h3>
+          <ul>
+            <li><span>AWS Educate · Introduction to Cloud 101</span><span>2026</span></li>
+            <li><span>AWS Educate · Getting Started with Storage</span><span>2026</span></li>
+            <li><span>DevOps · 4Linux</span><span>2022</span></li>
+            <li><span>Linux · 4Linux</span><span>2022</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3><span lang="pt">Idiomas</span><span lang="en">Languages</span></h3>
+          <ul>
+            <li><span lang="pt">Português</span><span lang="en">Portuguese</span><span lang="pt">nativo</span><span lang="en">native</span></li>
+            <li><span lang="pt">Inglês</span><span lang="en">English</span><span>B1</span></li>
+          </ul>
+          <p style="margin-top:12px"><span lang="pt">Inglês em aprimoramento, com aulas particulares em andamento.</span><span lang="en">Currently improving with private lessons.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contact" id="contato">
+    <div class="wrap">
+      <div class="contact-card">
+        <div>
+          <div class="eyebrow"><span lang="pt">Contato</span><span lang="en">Contact</span></div>
+          <h2><span lang="pt">Vamos <em>conversar</em>?</span><span lang="en">Let's <em>talk</em>?</span></h2>        </div>
+        <div class="links">
+          <div class="link">
+            <div><small>E-mail</small><span class="val" id="email">marialuuiza.contato@gmail.com</span></div>
+            <button type="button" class="copy" id="copy-email"><span lang="pt">Copiar</span><span lang="en">Copy</span></button>
+          </div>
+          <a class="link" href="https://wa.me/5511958199110?text=Ol%C3%A1%20Luiza%2C%20vi%20seu%20portf%C3%B3lio!" target="_blank" rel="noopener">
+            <div><small>WhatsApp</small><span lang="pt">Mandar mensagem</span><span lang="en">Send a message</span></div><span aria-hidden="true">↗</span>
+          </a>
+          <a class="link" href="https://www.linkedin.com/in/luizamariabarrosdeoliveira" target="_blank" rel="noopener">
+            <div><small>LinkedIn</small>/in/luizamariabarrosdeoliveira</div><span aria-hidden="true">↗</span>
+          </a>
+          <a class="link" href="https://github.com/luizaamaria" target="_blank" rel="noopener">
+            <div><small>GitHub</small>github.com/luizaamaria</div><span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Luiza Maria Barros de Oliveira</span>
+    <span lang="pt">Feito com Python no coração e HTML no código.</span>
+    <span lang="en">Python at heart, HTML in the code.</span>
+  </div>
+</footer>
+
+</div>
+
+<script>
+  (function(){
+    var site = document.getElementById('site');
+    var btns = document.querySelectorAll('.lang button');
+    function setLang(l){
+      site.setAttribute('data-lang', l);
+      document.documentElement.lang = l === 'en' ? 'en' : 'pt-BR';
+      btns.forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.set === l ? 'true' : 'false'); });
+      try { localStorage.setItem('lang', l); } catch(e) {}
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch(e) {}
+    setLang(saved === 'en' ? 'en' : 'pt');
+    btns.forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.set); }); });
+
+    var copyBtn = document.getElementById('copy-email');
+    copyBtn.addEventListener('click', function(){
+      var text = document.getElementById('email').textContent.trim();
+      var en = site.getAttribute('data-lang') === 'en';
+      function done(){ copyBtn.textContent = en ? 'Copied!' : 'Copiado!'; setTimeout(function(){ copyBtn.innerHTML = '<span lang="pt">Copiar</span><span lang="en">Copy</span>'; }, 1800); }
+      function fallback(){ var r = document.createRange(); r.selectNodeContents(document.getElementById('email')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else { fallback(); }
+    });
+  })();
+</script>
+</body>
+</html>
