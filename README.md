@@ -1,4 +1,4 @@
-# Portfólio · Luiza Maria Barros
+# Portfólio · Luiza Oliveira
 
 Desenvolvedora Python · Automação, Integrações e Dados.
 
